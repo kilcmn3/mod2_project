@@ -1,6 +1,12 @@
-<h1>Location's show page!</h1>
-<h3>location's name: <%= @location.name %></h3>
+<h1><%= @location.name %></h1>
 
+<% @location.photos.each do |photo_object|%>
+    <% if photo_object.image.attached? %>
+        <image src= "<%=(url_for(photo_object.image))%>" class="sized-image" >
+    <% end %>
+<% end %>
+
+<br><br>
 <% if @location.posts != [] %>
 <% @location.posts.each do |post| %>
 <li><%= post.content %></li>
@@ -9,3 +15,5 @@
 <strong>Empty for now!</strong>
 <% end %>
 
+<br><br>
+<%= link_to  "See All Locations", locations_path %>

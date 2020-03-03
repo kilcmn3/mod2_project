@@ -14,7 +14,7 @@ class PhotosController < ApplicationController
     def create
         
         @photo = Photo.create(unlocked_params)
-        redirect_to photos_path
+        redirect_to locations_path
 
     end
 
