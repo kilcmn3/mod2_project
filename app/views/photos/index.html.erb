@@ -1,0 +1,8 @@
+<h1>All photos</h1>
+
+<% @photos.each do |img| %>
+    <p><%= img.title %><p>
+    <% if img.image.attached? %>
+        <image src= "<%=(url_for(img.image))%>" class="sized-image" '>
+    <% end %>
+<% end %>
