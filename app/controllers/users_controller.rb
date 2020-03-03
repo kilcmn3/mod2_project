@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :log_in, only: [:show , :edit,  :update, :destroy]
+  before_action :user_find, only:[:show,:edit,:update,:destroy]
+  before_action :require_login
+  skip_before_action :require_login, only: [:index, :new, :create]
+
   def index
-    @errors = flash[:errors]
+    render :index
   end
 
   def show
@@ -12,7 +15,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @errors = flash[:errors]
+    @errors = flash[:new_errors]
   end
 
   def create
@@ -21,8 +24,9 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id 
       redirect_to user_path(@user.id)
     else
-       flash[:errors] = @user.errors.full_messages
-       redirect_to new_user_path
+       flash[:new_errors] = @user.errors.full_messages
+      #  byebug
+        redirect_to new_user_path
     end
   end
 
@@ -37,18 +41,22 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    flash[:message] = "Sorry to hear that..hope we'll see you again!"
     redirect_to root_path
   end
 
   private
 
+  def user_find
+    @user = User.find(session[:user_id])
+  end
+
   def user_params
     params.require(:user).permit(:name, :user_name, :password, :bio, :contact)
   end
 
-
-  def log_in
-    @user = User.find(session[:user_id])
+  def require_login
+    return head(:forbidden) unless session.include? :user_id
   end
 
 end

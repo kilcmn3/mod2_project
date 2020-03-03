@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
 
   def log_out
     reset_session
+    flash[:message] = "Good bye!"
     redirect_to root_url
   end
 end
