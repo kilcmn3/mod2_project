@@ -1,0 +1,30 @@
+<h1>User's show page</h1>
+<h3>Welcome back <%= @user.name %>!</h3>
+<p>
+  <label for="user_name"><b>User's email : </b></label>
+  <%= @user.user_name %> 
+  <br><br>
+  <label for="bio"><b>bio : </b></label>
+  <%= @user.bio %>
+  <br><br>
+  <label for="contact"><b>User's contact : </b></label>
+  <%= @user.contact %>
+</p>
+
+<% if @user.locations != [] %>
+<h4>User's favorite locations</h4>
+
+<% @user.locations.each do |location| %>
+<li> <b> Location's name: </b> 
+<%= link_to location.name, location %> 
+<b>, description: </b> 
+  <%= location.description %> </li>
+
+<% end %>
+<% else %>
+<strong>Your's locations list are empty!</strong>
+<% end %>
+
+<h4><%= button_to "Edit profile!", edit_user_path, :method => :get %></h4>
+<h4><%= button_to "Log_out", log_out_path, :method => :get %></h4>
+<h4><%= button_to "Delete me!", @user, :method => :delete  %></h4>

@@ -1,0 +1,22 @@
+<h1>Location's new page!</h1>
+<% if flash[:errors] %>
+<% flash[:errors].each do |error| %>
+<%=  error %>
+<br>
+<% end %>
+<% end %>
+
+
+<p>
+  <%= form_for @location do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :latitude %>
+    <%= f.number_field :latitude, step: :any %>
+
+    <%= f.label :longtitude %>
+    <%= f.number_field :longtitude, step: :any %>
+    <%= f.submit %>
+  <% end %>
+</p>
