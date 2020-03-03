@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_022051) do
   end
 
   create_table "photos", force: :cascade do |t|
+    t.text "url"
     t.string "title"
     t.integer "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
