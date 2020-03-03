@@ -1,0 +1,18 @@
+<h1>User's index page</h1>
+<% if @errors %>
+
+<%= @errors %>
+
+<% end %>
+<%= form_tag(loggin_path, method: :get) do %>
+
+<%= label_tag :user_name %>
+<%= text_field_tag :user_name %>
+<br>
+<%= label_tag :password %>
+<%= text_field_tag :password %>
+<br>
+<%= submit_tag "Log-in" %>
+<% end %>
+
+<h4><%= link_to "New user?", new_user_path %></h4>

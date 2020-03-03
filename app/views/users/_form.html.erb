@@ -1,0 +1,18 @@
+<%= form_for @user do |f| %>
+  <%= f.label :user_name%>
+  <%= f.text_field :user_name %>
+
+  <%= f.label :password%>
+  <%= f.text_field :password %>
+  
+  <%= f.label :name%>
+  <%= f.text_field :name %>
+  
+  <%= f.label :contact%>
+  <%= f.text_field :contact %>
+
+
+  <%= f.label :bio%>
+  <%= f.text_area :bio %>
+  <%= f.submit %>
+<% end %>
