@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :photos
   resources :posts
   resources :user_locations
-  resources :locations
+  resources :locations, only:[:index, :show, :new, :create]
   resources :users
   get '/sessions/log_in', to: 'sessions#authentication', as: 'loggin'
   get '/sessions/log_out', to: 'sessions#log_out', as: 'log_out'
