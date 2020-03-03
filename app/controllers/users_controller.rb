@@ -25,7 +25,6 @@ class UsersController < ApplicationController
       redirect_to user_path(@user.id)
     else
        flash[:new_errors] = @user.errors.full_messages
-      #  byebug
         redirect_to new_user_path
     end
   end

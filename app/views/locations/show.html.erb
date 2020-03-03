@@ -1,0 +1,10 @@
+<h1>Location's show page!</h1>
+<h3>location's name: <%= @location.name %></h3>
+
+<% if @location.posts != [] %>
+<% @location.posts.each do |post| %>
+<li><%= post.content %></li>
+<% end %>
+<% else %>
+<strong>Empty for now!</strong>
+<% end %>
