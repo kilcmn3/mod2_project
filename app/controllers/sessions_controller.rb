@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(user_name: params[:user_name])
     
     if params[:user_name] == '' || params[:password] == ''
-      flash[:errors] = "user name/password can't be blank!"
+      flash[:errors] = "user name or password can't be blank!"
       redirect_to root_path
     elsif !user || !user.authenticate(params[:password])
       flash[:errors] = "User name or password is incorrect!"
