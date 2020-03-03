@@ -19,7 +19,7 @@ Photo.destroy_all
 puts 'creating Photo'
 
 5.times do
-  User.create(name: Faker::Games::Heroes, user_name: Faker::Internet.email, password: 'test', bio: Faker::Quote.famous_last_words, contact: Faker::PhoneNumber)
+  User.create(name: Faker::Games::Heroes.name, user_name: Faker::Internet.email, password: 'test', bio: Faker::Quote.famous_last_words, contact: Faker::PhoneNumber.cell_phone)
 end
 
 5.times do
