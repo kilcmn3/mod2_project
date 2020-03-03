@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :user_find, only:[:show,:edit,:update,:destroy]
   before_action :require_login
   skip_before_action :require_login, only: [:index, :new, :create]
+  before_action :user_find, only:[:show,:edit,:update,:destroy]
 
   def index
     render :index
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if@user.valid?
       session[:user_id] = @user.id 
-      redirect_to user_path(@user.id)
+      redirect_to users_profile_path(@user.id)
     else
        flash[:new_errors] = @user.errors.full_messages
         redirect_to new_user_path
@@ -30,13 +30,21 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @errors = flash[:new_errors]
     render :edit
   end
 
   def update
     @user.update(user_params)
-    redirect_to user_path(@user.id)
+
+    if@user.valid?
+      session[:user_id] = @user.id 
+      redirect_to users_profile_path(@user.id)
+    else
+       flash[:new_errors] = @user.errors.full_messages
+        redirect_to user_edit_path
   end
+end
 
   def destroy
     @user.destroy

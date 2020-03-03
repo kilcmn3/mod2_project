@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     elsif user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to user_path(user.id)
+      redirect_to users_profile_path
     end
   end
 
