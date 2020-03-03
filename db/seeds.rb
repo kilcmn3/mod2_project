@@ -34,6 +34,6 @@ end
   Post.create(content: Faker::TvShows::Friends.quote, rating: rand(1..5), location_id: rand(1..5))
 end
 
-5.times do
-  Photo.create(url: 'http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/beach02.jpg', title: Faker::Book.title, location_id: rand(1..5))
-end
+# 5.times do
+#   Photo.create(title: Faker::Book.title, location_id: rand(1..5))
+# end

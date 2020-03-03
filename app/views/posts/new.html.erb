@@ -1,0 +1,9 @@
+<div class='col-span-6'>
+<h1>Create a Post</h1>
+</div>
+<%= form_for @post do |f| %>
+<%= f.label :content, "New Post: " %>
+
+<%= f.text_area :content %>
+
+<% end %>
