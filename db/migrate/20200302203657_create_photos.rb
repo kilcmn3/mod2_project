@@ -3,6 +3,7 @@ class CreatePhotos < ActiveRecord::Migration[6.0]
     create_table :photos do |t|
       t.text :url
       t.string :title
+      t.integer :user_id
       t.belongs_to :location, null: false, foreign_key: true
 
       t.timestamps

@@ -2,6 +2,7 @@
 
 <% @location.photos.each do |photo_object|%>
     <% if photo_object.image.attached? %>
+ 
         <image src= "<%=(url_for(photo_object.image))%>" class="sized-image" >
     <% end %>
 <% end %>

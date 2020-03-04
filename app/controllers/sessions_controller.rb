@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-
+  skip_before_action :require_login, only:[:authentication, :log_out]
   def authentication
     user = User.find_by(user_name: params[:user_name])
     
