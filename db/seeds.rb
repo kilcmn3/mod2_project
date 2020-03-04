@@ -24,7 +24,7 @@ end
 
 
 25.times do
-  Location.create(name: Faker::Nation.capital_city, latitude: rand(1..50), longtitude: rand(1..50), description: Faker::TvShows::Community.quotes)
+  Location.create(name: Faker::Nation.capital_city, latitude: rand(1..50), longitude: rand(1..50), description: Faker::TvShows::Community.quotes)
 end
 
 50.times do
