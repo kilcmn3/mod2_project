@@ -17,7 +17,7 @@
             UserLocation.create(user_id: session[:user_id], location_id: @photo.location_id)
             redirect_to location_path(@photo.location_id)
           else
-             flash[:new_errors] = @photo.errors.full_messages
+             flash[:new_errors] = ["Please fill out the blank space"]
               redirect_to new_photo_path
           end
     end

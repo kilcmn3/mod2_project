@@ -3,10 +3,10 @@
 class User < ApplicationRecord
   has_secure_password
   
-  has_many :photos
-  has_many :posts
-  has_many :user_locations
-  has_many :locations, through: :user_locations
+  has_many :photos , dependent: :destroy
+  has_many :posts , dependent: :destroy
+  has_many :user_locations , dependent: :destroy
+  has_many :locations, through: :user_locations , dependent: :destroy
 
   validates :user_name, :password, :name, :contact, :bio, presence: true
   validates :user_name, Uniqueness: true

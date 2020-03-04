@@ -11,10 +11,10 @@
   <%= @user.contact %>
 </p>
 
-<% if @user.locations != [] %>
+<% if @user.locations.count > 0 %>
 <h4>User's favorite locations</h4>
 <% @user.locations.each do |location| %>
-<% if location.photos[0].image.attached? %>
+<% if location.photos.count > 0 %>
 <image src= "<%=(url_for(location.photos[0].image))%>" class="sized-image" >
   <br>
   <b> Location's name: </b> 
