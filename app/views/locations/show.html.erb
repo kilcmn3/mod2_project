@@ -8,13 +8,33 @@
 <% end %>
 
 <br><br>
-<% if @location.posts != [] %>
+
+<div class= posts>
+<% @location.photos.each do |photo| %>
+
+
+    <div class='img-post'>
+
+        <% if photo.image.attached? %>
+            <image src= "<%=(url_for(photo.image))%>" class="sized-image" >
+        <% end %>
+
+    </div>
+
+<% end %>
+
+
+
 <% @location.posts.each do |post| %>
-<li><%= post.content %></li>
+
+
+    <div class='post'>
+        <p><%= post.user.user_name %></p>
+        <p><%= post.content %></p>
+    </div>
 <% end %>
-<% else %>
-<strong>Empty for now!</strong>
-<% end %>
+
+</div>
 
 <br><br>
 <%= link_to  "See All Locations", locations_path %>

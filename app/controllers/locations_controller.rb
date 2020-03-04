@@ -6,6 +6,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+    @photos = Photo.all
   end
 
   def new

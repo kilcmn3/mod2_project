@@ -6,6 +6,7 @@
 
     def new 
         @photo = Photo.new
+        @users = User.all
         @locations = Location.all
         @errors = flash[:new_errors]
     end 
