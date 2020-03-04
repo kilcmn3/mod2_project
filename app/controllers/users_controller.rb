@@ -1,5 +1,7 @@
 # frozen_string_literal: true
-
+##TODO need to work on user's show page
+# 1. user will able to see all his/her locations details such as photo, post, name? 
+# 2. get the right redirect_to (from user page to where?)
 class UsersController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:index, :new, :create]
