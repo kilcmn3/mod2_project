@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :require_login
   skip_before_action :require_login, only: [:index, :new, :create]
   before_action :user_find, only:[:show,:edit,:update,:destroy]
 
@@ -62,8 +61,8 @@ end
     params.require(:user).permit(:name, :user_name, :password, :bio, :contact)
   end
 
-  def require_login
-    return head(:forbidden) unless session.include? :user_id
-  end
+  # def require_login
+  #   return head(:forbidden) unless session.include? :user_id
+  # end
 
 end

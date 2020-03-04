@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_022051) do
   create_table "photos", force: :cascade do |t|
     t.text "url"
     t.string "title"
+    t.integer "user_id"
     t.integer "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_022051) do
   create_table "posts", force: :cascade do |t|
     t.text "content"
     t.integer "rating"
+    t.integer "user_id"
     t.integer "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -72,9 +74,9 @@ ActiveRecord::Schema.define(version: 2020_03_03_022051) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "user_name"
-    t.string "password"
     t.text "bio"
     t.integer "contact"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -23,7 +23,7 @@ puts 'creating Photo'
 end
 
 5.times do
-  Location.create(name: Faker::Nation.capital_city, latitude: '123456', longtitude: '54321', description: Faker::TvShows::Community.quotes)
+  Location.create(name: Faker::Nation.capital_city, latitude: rand(1..50), longtitude: rand(1..50), description: Faker::TvShows::Community.quotes)
 end
 
 5.times do
@@ -31,7 +31,7 @@ end
 end
 
 5.times do
-  Post.create(content: Faker::TvShows::Friends.quote, rating: rand(1..5), location_id: rand(1..5))
+  Post.create(content: Faker::TvShows::Friends.quote, rating: rand(1..5), location_id: rand(1..5), user_id: rand(1..5))
 end
 
 # 5.times do
