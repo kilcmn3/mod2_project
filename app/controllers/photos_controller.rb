@@ -5,8 +5,9 @@ class PhotosController < ApplicationController
     end 
     
     def new 
-        @photo = Photo.new
 
+        @photo = Photo.new
+        @users = User.all
         @locations = Location.all
 
     end 
@@ -22,6 +23,6 @@ class PhotosController < ApplicationController
     private 
 
     def unlocked_params
-        params.require(:photo).permit(:url, :title, :location_id, :image)
+        params.require(:photo).permit(:url, :title, :user_id, :location_id, :image)
     end 
 end
