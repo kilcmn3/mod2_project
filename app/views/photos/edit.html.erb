@@ -1,0 +1,6 @@
+<h1>Edit a Photo</h1>
+<%= render 'form'  %>  
+<image src= "<%=(url_for(@photo.image))%>" class="sized-image" >
+<br>
+<br>
+<%= button_to "Delete photo", photo_path(@photo.id), method: :delete %>

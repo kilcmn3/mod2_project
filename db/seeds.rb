@@ -22,6 +22,7 @@ puts 'creating Photo'
   User.create(name: Faker::Games::Heroes.name, user_name: Faker::Internet.email, password: 'test', bio: Faker::Quote.famous_last_words, contact: Faker::PhoneNumber.cell_phone)
 end
 
+
 25.times do
   Location.create(name: Faker::Nation.capital_city, latitude: rand(1..50), longtitude: rand(1..50), description: Faker::TvShows::Community.quotes)
 end
@@ -29,6 +30,7 @@ end
 50.times do
   UserLocation.create(user_id: rand(1..25), location_id: rand(1..25))
 end
+
 
 100.times do
   Post.create(content: Faker::TvShows::Friends.quote, rating: rand(1..5), location_id: rand(1..25), user_id: rand(1..25))
