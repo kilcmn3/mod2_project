@@ -8,10 +8,11 @@
 
         <%= link_to  location.name, location %>
         <br>
-        <% if location.photos.length != 0 %>
+        <% if location.photos.length != 0 %>    
+            <% if location.photos[0].image.attached? %>
             <image src= "<%=(url_for(location.photos[0].image))%>" class="sized-image" >
         <% end %>
-        
+            <% end %>
     <% end %>
 </div>
 

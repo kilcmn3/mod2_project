@@ -4,10 +4,6 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:index, :new, :create]
   before_action :user_find, only:[:show,:edit,:update,:destroy]
 
-  def index
-    render :index
-  end
-
   def show
     render :show
   end
@@ -15,13 +11,15 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @errors = flash[:new_errors]
+
+    render layout: "login"
   end
 
   def create
     @user = User.create(user_params)
     if@user.valid?
       session[:user_id] = @user.id 
-      redirect_to users_profile_path(@user.id)
+      redirect_to locations_path
     else
        flash[:new_errors] = @user.errors.full_messages
         redirect_to new_user_path

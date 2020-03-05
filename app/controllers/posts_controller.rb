@@ -6,11 +6,14 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.create(unlocked_params)
+        UserLocation.create(user_id: session[:user_id], location_id: @photo.location_id)
+        byebug
     end
 
     private 
 
     def unlocked_params
-        params.require(:post).permit(:content)
+        params[:post][:user_id] = session[:user_id]
+        params.require(:post).permit(:content, :user_id, :location_id)
     end 
 end

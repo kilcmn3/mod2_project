@@ -14,62 +14,9 @@
  *= require_self
  */
 
-body {
+ div.ppr_rup.ppr_priv_homepage_hero .homeHero .home_img { position: absolute; bottom: 0px; height: 100%; width: 100%; object-fit: cover; padding: 0px; margin: 0px; }div.ppr_rup.ppr_priv_homepage_hero .homeHero .home_img.fallback { opacity: 0; }.ppr_priv_homepage_hero .homeHero .home_img { transition: opacity 0.25s ease-in-out 0s; }
 
-    background-color: olive;
-
-}
-
-.sized-image {
-
-    width: 400px;
-    height: auto;
-
-}
-
-.image-container {
-
-    border: solid black 1px;
-    height: 80%;
-    width: 100%;
-    background-color: blanchedalmond;
-    display: inline-block;
-    border-radius: 10px;
-    padding: 4%;
-    border: 4%;
-
-}
-
-.post {
-
-    display: inline-block;
-    border: solid black 1px;
-    border-radius: 5px;
-    width: 50%;
-    text-align: center;
-    padding: 10px;
-    background-color: peachpuff;
-    margin: 0 auto;
-    
-}
-
-.img-post {
-
-    display: inline-block;
-    border: solid black 1px;
-    border-radius: 5px;
-    width: 50%;
-    text-align: center;
-    padding: 10px;
-    background-color: peachpuff;
-    margin: 0 auto;
-
-}
-
-.posts {
-
-    border: solid black 1px;
-    margin: 10px;
-    text-align: center;
-
-}
+ .style_image{
+  object-position: 50% 50%;
+  
+ }

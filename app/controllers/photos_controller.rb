@@ -6,7 +6,6 @@
 
     def new 
         @photo = Photo.new
-        @users = User.all
         @locations = Location.all
         @errors = flash[:new_errors]
     end 
@@ -24,18 +23,19 @@
     end
 
     def edit
+        # byebug
         @locations = Location.all
     end
 
     def update
-        @photo = Photo.create(unlocked_params)
-        redirect_to locations_path
+        @photo = Photo.update(unlocked_params)
+        # redirect_to locations_path
     end
 
     def destroy
         flash[:location_id] = @photo.location_id
         @photo.destroy
-        redirect_to location_path(flash[:location_id])
+        # redirect_to location_path(flash[:location_id])
     end
 
     private 

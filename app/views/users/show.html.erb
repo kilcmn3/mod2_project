@@ -1,5 +1,4 @@
-<h1>User's show page</h1>
-<h3>Welcome back <%= @user.name %>!</h3>
+<h2>Hello! <%= @user.name %>!</h2>
 <p>
   <label for="user_name"><b>User's email : </b></label>
   <%= @user.user_name %> 
@@ -14,27 +13,18 @@
 <% if @user.locations.count > 0 %>
 <h4>User's favorite locations</h4>
 <% @user.locations.each do |location| %>
-<% if location.photos.count > 0 %>
 <image src= "<%=(url_for(location.photos[0].image))%>" class="sized-image" >
   <br>
-  <b> Location's name: </b> 
-  <%= link_to location.name, location %> 
-  <b>, description: </b> 
-    <%= location.description %> 
-  <br>
-  <% else %>
  <b> Location's name: </b> 
 <%= link_to location.name, location %> 
 <b>, description: </b> 
   <%= location.description %> 
-<% end %>
 <% end %>
 <% else %>
 <strong>Your's locations list are empty!</strong>
 <% end %>
 <br>
 <br>
-<%= button_to "Edit profile!", user_edit_path(@user), :method => :get %><br>
-<%= button_to "Log_out", log_out_path, :method => :get %><br>
+
 <%= button_to "Delete me!", @user, :method => :delete  %><br>
-<%= button_to "Search", locations_path, :method => :get  %><br>
+

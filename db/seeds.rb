@@ -17,6 +17,8 @@ Post.destroy_all
 puts 'creating Post'
 Photo.destroy_all
 puts 'creating Photo'
+Place.destroy_all
+puts 'creating Places'
 
 25.times do
   User.create(name: Faker::Games::Heroes.name, user_name: Faker::Internet.email, password: 'test', bio: Faker::Quote.famous_last_words, contact: Faker::PhoneNumber.cell_phone)
@@ -35,6 +37,12 @@ end
 100.times do
   Post.create(content: Faker::TvShows::Friends.quote, rating: rand(1..5), location_id: rand(1..25), user_id: rand(1..25))
 end
+
+Place.create([
+  { "name": "Buckingham Palace", "latitude": "51.501564","longitude": "-0.141944"},
+  { "name": "Westminster Abbey", "latitude": "51.499581", "longitude": "-0.127309"},
+  { "name": "Big Ben", "latitude": "51.500792", "longitude": "-0.124613"}
+])
 
 # 5.times do
 #   Photo.create(title: Faker::Book.title, location_id: rand(1..5))
