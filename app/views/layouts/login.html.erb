@@ -3,6 +3,7 @@
   <head>
     <title>Mod2Project</title>
     <%= stylesheet_link_tag "application" %>
+    <style><%= yield :stylesheets %></style>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -16,12 +17,12 @@
   <div class='header'>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" >Name</a>
+  <a class="navbar-brand" >AppNameShouldBeHere</a>
   <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> -->
     <!-- <span class="navbar-toggler-icon"></span> -->
   <!-- </button> -->
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/locations">Main menu <span class="sr-only">(current)</span></a>
@@ -35,18 +36,18 @@
         <a class="nav-link" href="/sessions/logout" tabindex="-1" aria-disabled="true">Log out</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="/places/new" method="get">
-      <input class="form-control mr-sm-2" name="place[name]"type="search" placeholder="Search" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form> -->
   <!-- </div> -->
-</nav>
+<!-- </nav> -->
   </div>
   <img class="home_img fallback" src="https://media-cdn.tripadvisor.com/media/photo-b/1024x250/1a/a8/9a/e2/caption.jpg" 
-  srcset="https://media-cdn.tripadvisor.com/media/photo-b/1024x250/1a/a8/9a/e2/caption.jpg 1024w, 
-  https://media-cdn.tripadvisor.com/media/photo-b/1280x250/1a/a8/9a/e2/caption.jpg 1280w, 
-  https://media-cdn.tripadvisor.com/media/photo-b/2560x500/1a/a8/9a/e2/caption.jpg 2560w" 
-  style="object-position: 50% 50%">
+    srcset="https://media-cdn.tripadvisor.com/media/photo-b/1024x250/1a/a8/9a/e2/caption.jpg 1024w, 
+    https://media-cdn.tripadvisor.com/media/photo-b/1280x250/1a/a8/9a/e2/caption.jpg 1280w, 
+    https://media-cdn.tripadvisor.com/media/photo-b/2560x500/1a/a8/9a/e2/caption.jpg 2560w" 
+    style="object-position: 50% 50%">
   <body>
     <%= yield %>
   </body>
