@@ -1,21 +1,21 @@
 <h1><%= @location.name %></h1>
-<%= link_to  "Create a Post", new_post_path %>
+<%= link_to  "Create a Post", new_post_path, class: 'link-button' %>
 
 
 <br><br>
-<%= link_to  "See All Locations", locations_path %>
+<%= link_to  "See All Locations", locations_path, class: 'link-button' %>
 
 <div class="posts">
 <% @posts_photos.each do |post| %>
     <% if post.class.name == 'Post' %>
         <div class='post'>
-            <p>Username: <%= post.user.user_name %></p>
+            <p class= "user-name">Username: <%= post.user.user_name %></p>
             <p><%= post.content %></p>
         </div>
     <% else %>
         <div class='post'>
 
-            <p>Username: <%= post.user.user_name %></p>
+            <p class= "user-name">Username: <%= post.user.user_name %></p>
 
             <% if post.image.attached? %>
                 <image src= "<%=(url_for(post.image))%>" class="sized-image" >
