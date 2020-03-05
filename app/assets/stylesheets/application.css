@@ -14,7 +14,7 @@
  *= require_self
  */
 
-body {
+ div.ppr_rup.ppr_priv_homepage_hero .homeHero .home_img { position: absolute; bottom: 0px; height: 100%; width: 100%; object-fit: cover; padding: 0px; margin: 0px; }div.ppr_rup.ppr_priv_homepage_hero .homeHero .home_img.fallback { opacity: 0; }.ppr_priv_homepage_hero .homeHero .home_img { transition: opacity 0.25s ease-in-out 0s; }
 
     background-color: whitesmoke;
 
@@ -81,3 +81,9 @@ p {
 a.link-button {
     border: solid black 1px
 }
+
+ .style_image{
+  object-position: 50% 50%;
+  
+ }
+

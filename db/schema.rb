@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_022051) do
+ActiveRecord::Schema.define(version: 2020_03_05_015634) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(version: 2020_03_03_022051) do
     t.index ["location_id"], name: "index_photos_on_location_id"
   end
 
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.decimal "latitude"
+    t.decimal "longitude"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text "content"
     t.integer "rating"
@@ -85,4 +91,5 @@ ActiveRecord::Schema.define(version: 2020_03_03_022051) do
   add_foreign_key "posts", "locations"
   add_foreign_key "user_locations", "locations"
   add_foreign_key "user_locations", "users"
+
 end

@@ -1,10 +1,11 @@
 class LocationsController < ApplicationController
-
+  before_action :require_login
   def index
     @locations = Location.all
   end
 
   def show
+    # byebug
     @location = Location.find(params[:id])
     @photos = @location.photos 
     @posts = @location.posts
