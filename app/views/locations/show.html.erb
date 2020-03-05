@@ -1,40 +1,28 @@
 <h1><%= @location.name %></h1>
+<%= link_to  "Create a Post", new_post_path %>
 
-<% @location.photos.each do |photo_object|%>
-    <% if photo_object.image.attached? %>
- 
-        <image src= "<%=(url_for(photo_object.image))%>" class="sized-image" >
-    <% end %>
-<% end %>
-
-<br><br>
-
-<div class= posts>
-<% @location.photos.each do |photo| %>
-
-
-    <div class='img-post'>
-
-        <% if photo.image.attached? %>
-            <image src= "<%=(url_for(photo.image))%>" class="sized-image" >
-        <% end %>
-
-    </div>
-
-<% end %>
-
-
-
-<% @location.posts.each do |post| %>
-
-
-    <div class='post'>
-        <p><%= post.user.user_name %></p>
-        <p><%= post.content %></p>
-    </div>
-<% end %>
-
-</div>
 
 <br><br>
 <%= link_to  "See All Locations", locations_path %>
+
+<div class="posts">
+<% @posts_photos.each do |post| %>
+    <% if post.class.name == 'Post' %>
+        <div class='post'>
+            <p>Username: <%= post.user.user_name %></p>
+            <p><%= post.content %></p>
+        </div>
+    <% else %>
+        <div class='post'>
+
+            <p>Username: <%= post.user.user_name %></p>
+
+            <% if post.image.attached? %>
+                <image src= "<%=(url_for(post.image))%>" class="sized-image" >
+            <% end %>
+
+        </div>
+    <% end %>
+<% end %>
+
+</div>
