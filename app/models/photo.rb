@@ -6,4 +6,13 @@ class Photo < ApplicationRecord
   belongs_to :user
 
   validates :title, presence: true
+
+  def find_location
+    Location.find(self.location_id)
+  end
+
+  def find_post
+    Post.find_by(location_id: self.location_id)
+  end
+  
 end

@@ -2,10 +2,10 @@
 
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:index, :new, :create]
-  before_action :user_find, only:[:show,:edit,:update,:destroy]
+  before_action :user_find, only:[:show,:edit,:update,:destroy, :delete_review]
 
   def show
-    render :show
+    @user_photos = Photo.where(user_id: @user.id)
   end
 
   def new
@@ -37,18 +37,24 @@ class UsersController < ApplicationController
     if@user.valid?
       session[:user_id] = @user.id 
       redirect_to users_profile_path(@user.id)
-    else
+     else
        flash[:new_errors] = @user.errors.full_messages
         redirect_to user_edit_path
+    end
   end
-end
+
+  def delete_review
+    Photo.find_by(location_id: params[:location_id]).destroy
+    Post.find_by(location_id: params[:location_id]).destroy
+    redirect_to users_profile_path
+  end
 
   def destroy
     @user.destroy
     flash[:message] = "Sorry to hear that..hope we'll see you again!"
     redirect_to root_path
   end
-
+  
   private
 
   def user_find

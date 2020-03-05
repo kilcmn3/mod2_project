@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.create(unlocked_params)
-        UserLocation.create(user_id: session[:user_id], location_id: @photo.location_id)
+        # UserLocation.create(user_id: session[:user_id], location_id: @post.location_id)
         redirect_to location_path(@post.location.id)
     end
 

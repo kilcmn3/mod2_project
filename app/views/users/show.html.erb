@@ -10,15 +10,24 @@
   <%= @user.contact %>
 </p>
 
-<% if @user.locations.count > 0 %>
+<% if @user_photos.count > 0 %>
 <h4>User's favorite locations</h4>
-<% @user.locations.each do |location| %>
-<image src= "<%=(url_for(location.photos[0].image))%>" class="sized-image" >
-  <br>
+<% @user_photos.each do |photo| %>
+<li> 
+  <div>
+<image src= "<%=(url_for(photo.image))%>" class="sized-image" >
+</div>
+<div>
  <b> Location's name: </b> 
-<%= link_to location.name, location %> 
+<%= link_to photo.find_location.name, location_path(photo.find_location.id) %> 
 <b>, description: </b> 
-  <%= location.description %> 
+  <%= photo.find_location.description %> 
+</div>
+</div>
+  <b>Review</b> 
+  <%= photo.find_post.content %>
+  <%= button_to "Delete review me!", { action: "delete_review", location_id: photo.find_location.id}, method: :delete %><br>
+</li>
 <% end %>
 <% else %>
 <strong>Your's locations list are empty!</strong>
@@ -26,5 +35,7 @@
 <br>
 <br>
 
-<%= button_to "Delete me!", @user, :method => :delete  %><br>
+
+<%= button_to "Edit me!", user_edit_path, :method => :get %><br>
+<%= button_to "Cancel my account!", @user, :method => :delete  %><br>
 
