@@ -1,7 +1,14 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  skip_before_action :require_login, only:[:authentication, :log_out]
+  layout "login"
+
+  skip_before_action :require_login, only:[:default, :authentication, :log_out]
+  
+  def default
+    
+  end
+
   def authentication
     user = User.find_by(user_name: params[:user_name])
     
@@ -13,7 +20,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     elsif user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to users_profile_path
+      redirect_to locations_path
     end
   end
 
