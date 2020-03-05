@@ -45,25 +45,12 @@ body {
     display: inline-block;
     border: solid black 1px;
     border-radius: 5px;
-    width: 50%;
+    width: 400px%;
     text-align: center;
     padding: 10px;
     background-color: peachpuff;
     margin: 0 auto;
     
-}
-
-.img-post {
-
-    display: inline-block;
-    border: solid black 1px;
-    border-radius: 5px;
-    width: 50%;
-    text-align: center;
-    padding: 10px;
-    background-color: peachpuff;
-    margin: 0 auto;
-
 }
 
 .posts {

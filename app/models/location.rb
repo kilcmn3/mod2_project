@@ -7,6 +7,12 @@ class Location < ApplicationRecord
   has_many :photos
 
   validates :name, presence: true, uniqueness: true
-  validates :latitude, :longtitude, presence: true, uniqueness: true,  numericality: true
+  validates :latitude, :longitude, presence: true, uniqueness: true,  numericality: true
+
+ 
+  def get_photos_and_posts
+    (self.photos + self.posts ).sort_by(&:created_at)
+  end 
+
 
 end

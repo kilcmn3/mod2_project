@@ -6,7 +6,10 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    @photos = Photo.all
+    @photos = @location.photos 
+    @posts = @location.posts
+    @posts_photos = @location.get_photos_and_posts
+
   end
 
   def new
@@ -26,6 +29,6 @@ class LocationsController < ApplicationController
 
   private
   def location_params
-    params.require(:location).permit(:name, :latitude, :longtitude, :description)
+    params.require(:location).permit(:name, :latitude, :longitude, :description)
   end
 end

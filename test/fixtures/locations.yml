@@ -3,11 +3,11 @@
 one:
   name: MyString
   latitude: 1.5
-  longtitude: 1.5
+  longitude: 1.5
   description: MyText
 
 two:
   name: MyString
   latitude: 1.5
-  longtitude: 1.5
+  longitude: 1.5
   description: MyText

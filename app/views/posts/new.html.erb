@@ -3,8 +3,15 @@
 
 <%= form_for @post do |f| %>
     <%= f.label :content, "New Post: " %>
-
     <%= f.text_area :content %>
+
+    <%= f.label :rating, "Rating 1- 10" %>
+    <%= f.number_field :rating, max: 10 %>
+
+    <%= f.label :location_id, "Choose a Location" %>
+    <%= f.collection_select :location_id, Location.all, :id, :name %>
+
+    <%= f.submit %>
 
 <% end %>
 
