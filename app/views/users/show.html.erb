@@ -1,41 +1,35 @@
 <h2>Hello! <%= @user.name %>!</h2>
-<p>
-  <label for="user_name"><b>User's email : </b></label>
-  <%= @user.user_name %> 
-  <br><br>
-  <label for="bio"><b>bio : </b></label>
-  <%= @user.bio %>
-  <br><br>
-  <label for="contact"><b>User's contact : </b></label>
-  <%= @user.contact %>
-</p>
+
+<div class= 'image-container'>  
+  <p>Nmae: <%= @user.user_name %> 
+    <p>Bio: <%= @user.bio %>
+      <p>Contact: <%= @user.contact %>
 
 <% if @user_photos.count > 0 %>
 <h4>User's favorite locations</h4>
+<div class="posts">
 <% @user_photos.each do |photo| %>
-<li> 
-  <div>
-<image src= "<%=(url_for(photo.image))%>" class="sized-image" >
-</div>
-<div>
- <b> Location's name: </b> 
-<%= link_to photo.find_location.name, location_path(photo.find_location.id) %> 
-<b>, description: </b> 
-  <%= photo.find_location.description %> 
-</div>
-</div>
-  <b>Review</b> 
-  <%= photo.find_post.content %>
-  <%= button_to "Delete review me!", { action: "delete_review", location_id: photo.find_location.id}, method: :delete %><br>
-</li>
+<div class='post'> 
+  <% if photo.image.attached?  %>
+  <%= image_tag(photo.image, class: "sized-image") %>
 <% end %>
+
+Locaiton: <%= link_to photo.find_location.name, location_path(photo.find_location.id) %> 
+<br>
+Location's description: <%= photo.find_location.description %> 
+<br>
+Review: <%= photo.find_post.content %>
+<%= button_to "Delete review!", { action: "delete_review", location_id: photo.find_location.id}, method: :delete %>
+
+</div>
+<% end %>
+</div>
 <% else %>
 <strong>Your's locations list are empty!</strong>
 <% end %>
-<br>
-<br>
 
 
 <%= button_to "Edit me!", user_edit_path, :method => :get %><br>
 <%= button_to "Cancel my account!", @user, :method => :delete  %><br>
 
+</div>

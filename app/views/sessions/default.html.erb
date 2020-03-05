@@ -1,18 +1,21 @@
+<div class="error">
 <% if flash[:errors] %>
 <%= flash[:errors] %>
 <% end %>
 <% if flash[:message] %>
 <%= flash[:message] %>
 <% end %>
+</div>
+
+<div class="container">
 <%= form_tag(loggin_path, method: :get) do %>
 
 <%= label_tag :user_name %>
 <%= text_field_tag :user_name %>
-<br>
+
 <%= label_tag :password %>
 <%= password_field_tag :password %>
-<br>
-<%= submit_tag "Log-in" %>
-<% end %>
 
-<h4><%= button_to "New user?", new_user_path, method: :get %></h4>
+<%= submit_tag "Log-in"%>
+<% end %>
+</div>

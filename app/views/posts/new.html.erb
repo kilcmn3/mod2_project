@@ -1,18 +1,22 @@
 <h1>Create a Post</h1>
 
-
+<div class="container">
 <%= form_for @post do |f| %>
+<div class="form-group">
     <%= f.label :content, "New Post: " %>
-    <%= f.text_area :content %>
-
+    <%= f.text_area :content , class: "form-control" %>
+</div>
+    <div class="form-group">
     <%= f.label :rating, "Rating 1- 10" %>
-    <%= f.number_field :rating, max: 10 %>
+    <%= f.number_field :rating, max: 10 , class: "form-control" %>
+</div>
 
+    <div class="input-group">
     <%= f.label :location_id, "Choose a Location" %>
-    <%= f.collection_select :location_id, Location.all, :id, :name %>
-
+    <%= f.collection_select :location_id, Location.all, :id, :name ,class: "custom-select" %>
+</div>
     <%= f.submit %>
 
 <% end %>
-
 <%= button_to "Add Photo", new_photo_path, method: :get %>
+</div>

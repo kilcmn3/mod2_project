@@ -11,8 +11,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @errors = flash[:new_errors]
-
-    render layout: "login"
   end
 
   def create

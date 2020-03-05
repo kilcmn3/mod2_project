@@ -14,76 +14,63 @@
  *= require_self
  */
 
- div.ppr_rup.ppr_priv_homepage_hero .homeHero .home_img { position: absolute; bottom: 0px; height: 100%; width: 100%; object-fit: cover; padding: 0px; margin: 0px; }div.ppr_rup.ppr_priv_homepage_hero .homeHero .home_img.fallback { opacity: 0; }.ppr_priv_homepage_hero .homeHero .home_img { transition: opacity 0.25s ease-in-out 0s; }
+ /* div.ppr_rup.ppr_priv_homepage_hero .homeHero .home_img { position: absolute; bottom: 0px; height: 100%; width: 100%; object-fit: cover; padding: 0px; margin: 0px; }div.ppr_rup.ppr_priv_homepage_hero .homeHero .home_img.fallback { opacity: 0; }.ppr_priv_homepage_hero .homeHero .home_img { transition: opacity 0.25s ease-in-out 0s; } */
 
-    background-color: whitesmoke;
+ .header-image{
+     background-image: url("https://media-cdn.tripadvisor.com/media/photo-b/1024x250/1a/a8/9a/e2/caption.jpg");
+     background-size: cover;
+     height: 40vh;
+ }
+ .mycontainer {
+     
+     text-align: center;
+     width: 60%;
+     margin-top: 5%;
+     background-color: cornflowerblue;
+     color: rgb(204, 229, 233);
+     border-radius: 5px;
+     padding: 10px;
+ }
 
-}
+ body {
+     background-color: rgb(225, 217, 217);
+ }
 
-.sized-image {
+ .head-color {
+    background-color: rgb(225, 217, 217)
+ }
 
-    width: 400px;
-    height: auto;
-
-}
-
-.image-container {
-
-    border: solid black 1px;
-    height: 80%;
-    width: 100%;
-    background-color: blanchedalmond;
-    display: inline-block;
-    border-radius: 10px;
-    padding: 4%;
-    border: 4%;
-
-}
-
-div.post {
-
-    display: inline-block;
-    border: solid black 1px;
-    /* border-radius: 5px; */
-    width: 50%;
+ textarea {
+    line-height: 1.2; 
+    min-height: 120px; 
+    padding: 10px 20px; 
+ } 
+ 
+h1 {
+    font-family: 'Luckiest Guy', cursive;
+    margin-top: 20px;
     text-align: center;
-    padding: 10px;
-    background-color: peachpuff;
-    margin: 10px auto;
-    
 }
 
 .posts {
-
-    /* border: solid black 1px; */
     margin: auto;
     text-align: center;
-    margin: 10%;
-    
-
 }
 
-h1 {
-    font-family: 'Trade Winds', cursive;
+div.post {
+    width: 80%;
     text-align: center;
-    padding-top: 5%;
+    padding: 10px;
+    background-color: rgb(210, 240, 231);
+    margin: 10px auto;
 }
 
-p {
-    font-family: 'Indie Flower', cursive;
+.sized-image {
+    width: 400px;
+    height: auto;
 }
 
-.user-name {
-    text-decoration: underline;
-    text-align: left;
+.image-container {
+    flex-direction: column;
+    display: flex;
 }
-
-a.link-button {
-    border: solid black 1px
-}
-
- .style_image{
-  object-position: 50% 50%;
-  
- }
-

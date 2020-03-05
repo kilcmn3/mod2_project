@@ -11,43 +11,42 @@
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Trade+Winds&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
   </head>
 
-  <div class='header'>
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" >Name</a>
-  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> -->
-    <!-- <span class="navbar-toggler-icon"></span> -->
-  <!-- </button> -->
+  <body >
+    <div class="container">
+      <div class='header'>
+        
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" >Travel-Gram</a>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> -->
+          <!-- <span class="navbar-toggler-icon"></span> -->
+        <!-- </button> -->
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <%= link_to "Main", "/locations",class:"nav-link" if logged_in?%>
+            </li>
+            <li class="nav-item">
+              <%= link_to "profile", "/users/profile",class:"nav-link" if logged_in?%>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Logout", "/sessions/logout",class:"nav-link" if logged_in?%>
+            </li>
+          </ul> 
+            <%= button_to "New User", new_user_path, method: :get if !logged_in?%>
+          </form>
+        </div>
+    </nav>
+    <div class="header-image">
+    </div>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/locations">Main menu <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/profile">profile</a>
-      </li>
-      <li class="nav-item dropdown">
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/sessions/logout" tabindex="-1" aria-disabled="true">Log out</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0" action="/places/new" method="get">
-      <input class="form-control mr-sm-2" name="place[name]"type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  <!-- </div> -->
-</nav>
-  </div>
-  <img class="home_img fallback" src="https://media-cdn.tripadvisor.com/media/photo-b/1024x250/1a/a8/9a/e2/caption.jpg" 
-  srcset="https://media-cdn.tripadvisor.com/media/photo-b/1024x250/1a/a8/9a/e2/caption.jpg 1024w, 
-  https://media-cdn.tripadvisor.com/media/photo-b/1280x250/1a/a8/9a/e2/caption.jpg 1280w, 
-  https://media-cdn.tripadvisor.com/media/photo-b/2560x500/1a/a8/9a/e2/caption.jpg 2560w" 
-  style="object-position: 50% 50%">
-  <body>
+    </div>
     <%= yield %>
+
+  </div>
   </body>
+
 </html>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  layout "login"
+  # layout "login"
 
   skip_before_action :require_login, only:[:default, :authentication, :log_out]
   

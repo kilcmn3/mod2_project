@@ -1,16 +1,18 @@
 <h1>Add a Photo</h1>
-
+<div class="container">
 <%= form_for @photo do |f| %>
-
+<div class="form-group">
     <%= f.label :title, "Title of your Photo" %>
     <%= f.text_field :title %>
-
+</div>
+<div class="form-group">
     <%= f.label :image, "Upload The Image" %>
     <%= f.file_field :image %>
-    
+</div>
+    <div class="input-group">
     <%= f.label :location_id, "Select Your Location" %>
     <%= f.collection_select :location_id, @locations, :id, :name  %>
-
+</div>
     <%= f.submit %>
 
 <% end %>
@@ -20,5 +22,5 @@
 <%= error %>
 <% end %>
 <% end %>
-
+</div>
 
