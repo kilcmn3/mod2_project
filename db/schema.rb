@@ -91,5 +91,4 @@ ActiveRecord::Schema.define(version: 2020_03_05_015634) do
   add_foreign_key "posts", "locations"
   add_foreign_key "user_locations", "locations"
   add_foreign_key "user_locations", "users"
-
 end

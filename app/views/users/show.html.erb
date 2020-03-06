@@ -1,3 +1,4 @@
+  
 <h2>Hello! <%= @user.name %>!</h2>
 
 <div class= 'image-container'>  
@@ -5,22 +6,25 @@
     <p>Bio: <%= @user.bio %>
       <p>Contact: <%= @user.contact %>
 
-<% if @user_photos.count > 0 %>
+<% if @user.locations.count > 0 %>
 <h4>User's favorite locations</h4>
 <div class="posts">
-<% @user_photos.each do |photo| %>
-<div class='post'> 
-  <% if photo.image.attached?  %>
-  <%= image_tag(photo.image, class: "sized-image") %>
+<% @user.locations.each do |location| %>
+<div class='post'>
+
+Locaiton: <%= link_to location.name, location_path(location.id) %> 
+<br>
+Location's description: <%= location.description %> 
+<br>
+<% location.posts.each do |post| %>
+  <% if location.photos.count > 0 %>
+    <% location.photos.each do |photo| %> 
+<%= image_tag(photo.image, class: "sized-image") if photo.image.attached? %>
 <% end %>
-
-Locaiton: <%= link_to photo.find_location.name, location_path(photo.find_location.id) %> 
-<br>
-Location's description: <%= photo.find_location.description %> 
-<br>
-Review: <%= photo.find_post.content %>
-<%= button_to "Delete review!", { action: "delete_review", location_id: photo.find_location.id}, method: :delete %>
-
+<% end %> 
+Review: <%= post.content if post.user_id == @user.id%>
+<%= button_to "Delete review!", { action: "delete_review", location_id: location.id}, method: :delete %>
+<% end %>
 </div>
 <% end %>
 </div>
