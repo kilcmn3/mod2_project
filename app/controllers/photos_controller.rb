@@ -15,6 +15,7 @@
         @photo = Photo.create(unlocked_params)
         if@photo.valid?
             # UserLocation.create(user_id: session[:user_id], location_id: @photo.location_id)
+            UserLocation.find_or_create_by(user_id: session[:user_id], location_id: params[:photo][:location_id])
             redirect_to location_path(@photo.location_id)
           else
              flash[:new_errors] = ["Please fill out the blank space"]

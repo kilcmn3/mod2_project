@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   before_action :user_find, only:[:show,:edit,:update,:destroy, :delete_review]
 
   def show
-    @user_photos = Photo.where(user_id: @user.id)
+    # @user_photos = Photo.find(user_id: 0)
+    # @user_locations = Location.where(user_id: @user.id)
+  
   end
 
   def new
@@ -42,8 +44,19 @@ class UsersController < ApplicationController
   end
 
   def delete_review
-    Photo.find_by(location_id: params[:location_id]).destroy
-    Post.find_by(location_id: params[:location_id]).destroy
+    user_photo = Photo.find_by(location_id: params[:location_id], user_id: session[:user_id]) 
+    user_post = Post.find_by(location_id: params[:location_id], user_id: session[:user_id])
+    user_location = UserLocation.find_by(user_id: session[:user_id])
+    if user_photo && user_post
+      user_photo.destroy
+      user_post.destroy
+    elsif user_photo 
+      user_photo.destroy
+    elsif user_post
+      user_post.destroy
+    end
+    byebug  
+    user_location.destroy
     redirect_to users_profile_path
   end
 
